@@ -224,8 +224,94 @@ h2 {
     font-weight: 500;
 }
 
-/* Media Query pour la responsivité (tablettes et mobiles) */
+/* ------------------------------------------------------------------ */
+/* --- Styles spécifiques pour la page de détail de projet (NON RESPONSIVE) --- */
+/* ------------------------------------------------------------------ */
+
+/* Général */
+.project-detail-page {
+    /* Supprime la barre latérale pour les pages de projet */
+    display: block; 
+    background-color: var(--secondary-color);
+}
+
+/* En-tête de la page projet */
+.project-header {
+    background-color: white;
+    padding: 30px 50px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.project-header h1 {
+    color: var(--primary-color);
+    margin-top: 10px;
+    font-size: 2em;
+    border-bottom: none; 
+}
+
+.project-header .back-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.project-header .back-link:hover {
+    color: var(--primary-color);
+}
+
+/* Contenu du projet */
+.project-content-area {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.project-section {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.project-section h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.project-section h3 {
+    color: var(--text-color);
+    font-size: 1.3em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.project-section ul {
+    list-style: disc;
+    margin-left: 20px;
+}
+
+/* Boutons supplémentaires pour le code/notebook */
+.second-btn {
+    background-color: #6c757d; 
+    margin-left: 15px;
+}
+
+.second-btn:hover {
+    background-color: #5a6268;
+}
+
+/* ------------------------------------------------------------------ */
+/* --- Media Queries pour la responsivité (Adaptation aux écrans plus petits) --- */
+/* ------------------------------------------------------------------ */
+
 @media (max-width: 1000px) {
+    /* Styles pour la page principale (index.html) */
     body {
         flex-direction: column;
     }
@@ -235,7 +321,7 @@ h2 {
         width: 100%;
         height: auto;
         padding: 20px;
-        flex-direction: row; /* Aligner les éléments horizontalement */
+        flex-direction: row; 
         flex-wrap: wrap;
         justify-content: space-around;
     }
@@ -247,7 +333,7 @@ h2 {
     .main-nav {
         width: 100%;
         margin-top: 10px;
-        order: 3; /* Placer la navigation sous le profil */
+        order: 3; 
     }
     
     .main-nav ul {
@@ -272,8 +358,22 @@ h2 {
     .social-links {
         margin-top: 15px;
         padding-top: 10px;
-        order: 2; /* Positionner les liens sociaux */
+        order: 2; 
         width: 100%;
         text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Styles spécifiques pour les pages de détail de projet (project1.html) sur mobile */
+    .project-header {
+        padding: 20px;
+    }
+    .project-content-area {
+        width: 100%;
+        padding: 0 15px;
+    }
+    .project-header h1 {
+        font-size: 1.5em;
     }
 }
