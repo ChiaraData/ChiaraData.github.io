@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet : Prédiction des accidents de la route</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="project-detail-page">
+
+    <header class="project-header">
+        <div class="header-content">
+            <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+            <h1>Projet : Analyse et prédiction des accidents de la route en France</h1>
+        </div>
+    </header>
+
+    <main class="project-content-area">
+
+        <section class="project-section intro">
+            <h2>Contexte et Objectifs</h2>
+            <p>
+                Ce projet personnel de Data Science vise à analyser les données d'accidents de la route en France pour identifier les facteurs clés de risque et développer un modèle capable de prédire la gravité potentielle d'un accident en fonction de ses caractéristiques (météo, lieu, heure, type de véhicule, etc.).
+            </p>
+            <p>
+                [cite_start]**Période :** Février 2025 – en cours[cite: 103, 104].
+            </p>
+        </section>
+
+        <section class="project-section tools">
+            <h2>Compétences et Outils Utilisés</h2>
+            <div class="skills-list">
+                <span class="skill-tag">Python (Pandas, Numpy)</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Visualisation (Matplotlib, Seaborn)</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">SQL</span>
+            </div>
+        </section>
+
+        <section class="project-section methodology">
+            <h2>Méthodologie du Projet</h2>
+
+            <h3>1. Collecte et Nettoyage des Données</h3>
+            <ul>
+                <li>Extraction des données (source : rapports officiels de l'Observatoire national interministériel de la sécurité routière (ONISR) et d'autres sources fiables. ).</li>
+                <li>Traitement des valeurs manquantes et encodage des variables catégorielles (One-Hot Encoding).</li>
+                <li>Création de nouvelles *features* (ex : heure du jour, week-end/jour de semaine).</li>
+            </ul>
+
+            <h3>2. Analyse Exploratoire des Données (EDA)</h3>
+            <ul>
+                <li>Visualisation des distributions des variables (âge des conducteurs, conditions météo) et de leur corrélation avec la gravité. </li>
+                <li>Identification des déséquilibres de classes (accidents mortels rares) nécessitant une technique de sur-échantillonnage (SMOTE) ou de sous-échantillonnage.</li>
+            </ul>
+
+            <h3>3. Modélisation Prédictive (Machine Learning)</h3>
+            <ul>
+                <li>**Modèles testés :** Régression Logistique, Random Forest, XGBoost.</li>
+                <li>**Métriques d'évaluation :** Précision (Accuracy), Rappel (Recall), F1-Score (particulièrement pour la classe minoritaire).</li>
+                <li>**Résultat clé :** Le modèle XGBoost a obtenu un F1-Score de [X]% pour la prédiction des accidents graves.</li>
+            </ul>
+        </section>
+
+        <section class="project-section results">
+            <h2>Résultats et Perspectives</h2>
+            
+            <p>
+                Le modèle développé permet d'identifier les combinaisons de facteurs qui augmentent significativement le risque d'accident grave. Les variables [Ex: l'état de la route, la luminosité] ont été identifiées comme les plus importantes.
+            </p>
+
+    
+            <a href="https://github.com/ChiaraData/ChiaraMasi/blob/main/projetaccident.ipynb" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-code"></i> Voir le Notebook (Jupyter)</a>
+        </section>
+
+    </main>
+
+</body>
+</html>
