@@ -24,10 +24,10 @@
                 Ce projet académique réalisé dans le cadre de la Licence MIASHS (Mathématiques et Économie) avait pour objectif d'évaluer, par des méthodes économétriques, l'existence et l'ampleur d'une incidence du lieu de résidence sur la probabilité d'être en emploi et sur le niveau de salaire.
             </p>
             <p>
-                **Réalisé par :** Chiara Masi, Lucas Paillas, Nelson Reves.<br>
-                **Sous la direction de :** Hélène Couprie.<br>
-                **Période :** Janvier 2025 – Avril 2025 (Année universitaire 2024-2025).
-                ** Note obtenue:** 20/20
+                Réalisé par : Chiara Masi, Lucas Paillas, Nelson Reves.<br>
+                Sous la direction de : Hélène Couprie.<br>
+                Période : Janvier 2025 – Avril 2025 (Année universitaire 2024-2025).
+                Note obtenue: 20/20
             </p>
         </section>
 
@@ -41,7 +41,7 @@
                 <span class="skill-tag">Tests de Wald</span>
             </div>
             <p style="margin-top: 15px;">
-                **Source de données :** Données individuelles issues de l'enquête de INSEE, Fichier <code>indiv231.csv</code>).
+                Source de données :Données individuelles issues de l'enquête de INSEE, Fichier <code>indiv231.csv</code>).
             </p>
         </section>
 
@@ -52,13 +52,13 @@
             <ul>
                 <li>Filtrage des individus en âge de travailler (15 &lt; AGE &le; 64 ans).</li>
                 <li>Sélection des individus actifs (en emploi ou au chômage, ACTEU %in% c(1,2)).</li>
-                <li>Recodage de la variable d'intérêt **ACTEU** (1 = En emploi, 0 = Chômage).</li>
+                <li>Recodage de la variable d'intérêt ACTEU (1 = En emploi, 0 = Chômage).</li>
                 <li>Identification des variables géographiques clés : <code>DENS2022</code> (densité de population), <code>QPV</code> (Quartier Prioritaire de la Ville), <code>METRODOM</code> (région métropolitaine/DOM), <code>REG</code>, <code>STCOMM2020</code>.</li>
             </ul>
 
             <h3>2. Modèle 1 : Impact sur le Salaire (SALRED_Y)</h3>
             <p>
-                **Objectif :** Estimer l'effet des variables géographiques et socio-économiques sur le salaire annuel net (variable <code>SALRED_Y</code>).
+                Objectif : Estimer l'effet des variables géographiques et socio-économiques sur le salaire annuel net (variable <code>SALRED_Y</code>).
             </p>
             <ul>
                 <li>Utilisation de la méthode des **Moindres Carrés Ordinaires (MCO)**.</li>
@@ -67,10 +67,10 @@
 
             <h3>3. Modèle 2 : Impact sur l'Emploi (ACTEU recodé)</h3>
             <p>
-                **Objectif :** Estimer l'effet des variables géographiques sur la probabilité d'être en emploi, étant donné l'état d'activité.
+                Objectif : Estimer l'effet des variables géographiques sur la probabilité d'être en emploi, étant donné l'état d'activité.
             </p>
             <ul>
-                <li>Utilisation d'un modèle de choix discret (probablement **Logit ou Probit**) adapté à une variable dépendante binaire (Emploi/Chômage).</li>
+                <li>Utilisation d'un modèle de choix discret (probablement Logit ou Probit) adapté à une variable dépendante binaire (Emploi/Chômage).</li>
                 <li>Analyse des coefficients et des effets marginaux.</li>
             </ul>
         </section>
@@ -82,10 +82,8 @@
                 L'analyse descriptive puis économétrique a permis de mettre en évidence l'importance du lieu d'habitation. Les **Tests de Wald** ont été utilisés pour comparer la performance des modèles contraints et non contraints et valider la significativité des facteurs géographiques.
             </p>
             <p>
-                **Conclusion majeure :** "Les variables de densité et de région (DENS2022, REG) se sont avérées statistiquement significatives, confirmant l'existence de disparités régionales importantes sur le marché du travail."].
+                Conclusion majeure : "Les variables de densité et de région (DENS2022, REG) se sont avérées statistiquement significatives, confirmant l'existence de disparités régionales importantes sur le marché du travail."].
             </p>
-
-            <a href="URL_GITHUB_PROJET_ACADEMIQUE" target="_blank" class="btn-primary"><i class="fab fa-github"></i> Voir le code R sur GitHub</a>
             <a href="projet_econometrieL3MIASHS.pdf" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-pdf"></i> Télécharger le Rapport</a>
         </section>
 
