@@ -12,7 +12,8 @@
     <header class="project-header">
         <div class="header-content">
             <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
-            <h1>Projet Économétrique : Incidence du Lieu d'Habitation sur l'Emploi et les Salaires</h1>
+            <h1>Projet Économétrique :Le lieu d’habitation a-t-il une incidence sur les opportunités d’emploi
+ou les salaires ?</h1>
         </div>
     </header>
 
@@ -26,7 +27,7 @@
             <p>
                 Réalisé par : Chiara Masi, Lucas Paillas, Nelson Reves.<br>
                 Sous la direction de : Hélène Couprie.<br>
-                Période : Janvier 2025 – Avril 2025 (Année universitaire 2024-2025).
+                Période : Janvier 2025 – Avril 2025 (Année universitaire 2024-2025). <br>
                 Note obtenue: 20/20
             </p>
         </section>
@@ -41,7 +42,8 @@
                 <span class="skill-tag">Tests de Wald</span>
             </div>
             <p style="margin-top: 15px;">
-                Source de données :Données individuelles issues de l'enquête de INSEE, Fichier <code>indiv231.csv</code>).
+                Source de données :INSEE (Institut National de la Statistique et des Études Économiques). Enquête
+Emploi en Continu (EEC). Disponible sur : www.insee.fr.
             </p>
         </section>
 
@@ -56,34 +58,45 @@
                 <li>Identification des variables géographiques clés : <code>DENS2022</code> (densité de population), <code>QPV</code> (Quartier Prioritaire de la Ville), <code>METRODOM</code> (région métropolitaine/DOM), <code>REG</code>, <code>STCOMM2020</code>.</li>
             </ul>
 
-            <h3>2. Modèle 1 : Impact sur le Salaire (SALRED_Y)</h3>
-            <p>
-                Objectif : Estimer l'effet des variables géographiques et socio-économiques sur le salaire annuel net (variable <code>SALRED_Y</code>).
-            </p>
+            <h3>2.Statistiques Descriptives</h3>
             <ul>
-                <li>Utilisation de la méthode des **Moindres Carrés Ordinaires (MCO)**.</li>
-                <li>Vérification des hypothèses du modèle de régression linéaire.</li>
+                <li>Statistiques descriptives univariés (créations de graphiques) et premiers constats.</li>
+                <li>Statistiques descriptives bivariées : Relation entre le lieu d’habitation et le statut d’emploi ,Relation entre le lieu d’habitation et le salaire</li>
+                <li>Conclusion des analyses descriptives, formulation d'hypothèses et test de significativité </li>
             </ul>
 
-            <h3>3. Modèle 2 : Impact sur l'Emploi (ACTEU recodé)</h3>
-            <p>
-                Objectif : Estimer l'effet des variables géographiques sur la probabilité d'être en emploi, étant donné l'état d'activité.
-            </p>
-            <ul>
-                <li>Utilisation d'un modèle de choix discret (probablement Logit ou Probit) adapté à une variable dépendante binaire (Emploi/Chômage).</li>
-                <li>Analyse des coefficients et des effets marginaux.</li>
-            </ul>
+            <h3>3. Modèle 1 : Impact du lieu d’habitation sur le salaire (SALRED_Y)</h3>
+            <strong>Objectif :</strong> Estimer l'effet des variables géographiques et socio-économiques sur le salaire annuel net (variable <code>SALRED_Y</code>).
+        </p> <ul> <li><strong>Méthodologie :</strong> Utilisation de la méthode des 
+            <strong>Moindres Carrés Ordinaires (MCO)</strong> 
+            sur un modèle semi-logarithmique (<code>log(SALRED_Y)</code>) pour interpréter les coefficients en termes de variations relatives (%).</li> 
+            <li><strong>Traitement des données :</strong> Identification d'une forte colinéarité entre le lieu d'habitation (<code>STCOMM2020</code>) et l'appartenance à un Quartier Prioritaire de la Ville (<code>QPV</code>), menant à l'exclusion de cette dernière pour stabiliser le modèle.</li> 
+            <li><strong>Variables mobilisées :</strong> Lieu d’habitation (Banlieue, Centre-ville, Hors unité urbaine, Ville isolée), Âge, Sexe et Niveau de diplôme (<code>DIP7</code>).</li> 
+            <li><strong>Résultats clés :</strong> <ul> <li><strong>Géographie :</strong> Vivre en centre-ville ou hors unité urbaine réduit le salaire de 6,1% à 6,6% par rapport à la catégorie de référence.</li> 
+                <li><strong>Socio-démographie :</strong> L'âge a un effet positif (+1,27% par an), tandis qu'être une femme réduit le salaire de 29,8%, toutes choses égales par ailleurs.</li> </ul> </li> 
+            <li><strong>Validation statistique :</strong> <ul> <li>Vérification de la normalité des résidus et de l'absence de multicolinéarité immédiate pour les variables numériques.</li> 
+                <li>Réalisation d'un <strong>test de Wald (Fisher)</strong> confirmant la significativité globale du modèle et l'importance cruciale de la variable <code>SEXE</code> dans l'explication des écarts salariaux.</li> </ul> </li> </ul>
+               
+
+            <h3>4. Modèle 2 : Impact sur l'Emploi (ACTEU recodé)</h3>
+            <p><strong>Objectif :</strong> Analyser les déterminants de l'accès à l'emploi (variable binaire <code>ACTEU</code> : en emploi vs au chômage) en fonction du profil socio-démographique et géographique. </p> 
+            <ul> <li><strong>Méthodologie :</strong> Mise en œuvre d'une <strong>régression logistique (Logit)</strong>, adaptée à la nature catégorielle de la variable expliquée. Les résultats sont exprimés en <em>log-odds</em> (logarithme du rapport des chances).</li> 
+                <li><strong>Traitement des données :</strong> Recodage de la variable <code>ACTEU</code> en format binaire et transformation des variables explicatives (Sexe, Lieu d'habitation, Diplôme) en facteurs pour permettre une analyse par catégories de référence.</li> 
+                <li><strong>Variables mobilisées :</strong> <ul> <li><code>STCOMM</code> : Lieu de résidence (Référence : Hors unité urbaine).</li> 
+                    <li><code>AGE</code>, <code>SEXE</code> (Référence : Homme), <code>DIP7</code> (Référence : Bac+5).</li> </ul> 
+                </li> <li><strong>Résultats clés :</strong> <ul> <li><strong>Lieu d'habitation :</strong> Habiter en ville-centre réduit significativement les chances d'emploi par rapport aux zones rurales (coef: -0,220). L'effet pour les villes isolées n'est pas statistiquement significatif.</li> 
+                    <li><strong>Facteurs individuels :</strong> L'âge favorise l'accès à l'emploi (effet de l'expérience), tandis qu'être une femme réduit la probabilité d'être en emploi (coef: -0,090), confirmant des disparités de genre.</li> 
+                    <li><strong>Éducation :</strong> Le diplôme est un levier majeur ; les chances d'emploi croissent avec le niveau de formation initiale.</li> </ul> </li> 
+                <li><strong>Conclusion :</strong> Le modèle souligne que l'insertion professionnelle ne dépend pas seulement des compétences (diplôme, âge), mais reste fortement marquée par des inégalités territoriales et de genre.</li> </ul>
         </section>
 
         <section class="project-section results">
             <h2>Résultats Clés</h2>
-            
-            <p>
-                L'analyse descriptive puis économétrique a permis de mettre en évidence l'importance du lieu d'habitation. Les **Tests de Wald** ont été utilisés pour comparer la performance des modèles contraints et non contraints et valider la significativité des facteurs géographiques.
-            </p>
-            <p>
-                Conclusion majeure : "Les variables de densité et de région (DENS2022, REG) se sont avérées statistiquement significatives, confirmant l'existence de disparités régionales importantes sur le marché du travail."].
-            </p>
+<ul>
+    <li><strong>Déterminants clés :</strong> Les modèles économétriques confirment que le lieu de résidence, le sexe, l'âge et le diplôme influencent de manière significative le niveau de salaire et l'accès à l'emploi.</li>
+    <li><strong>Enjeux sociaux :</strong> L'analyse met en lumière des disparités territoriales et de genre marquées, fournissant des indicateurs essentiels pour orienter les politiques publiques de lutte contre les inégalités.</li>
+    <li><strong>Limites et perspectives :</strong> La robustesse de l'étude pourrait être renforcée en intégrant des variables contractuelles (type de contrat, temps de travail) ou en utilisant des modèles plus avancés comme le machine learning.</li>
+</ul>
             <a href="projet_econometrieL3MIASHS.pdf" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-pdf"></i> Télécharger le Rapport</a>
         </section>
 
