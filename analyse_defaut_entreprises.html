@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet personnel : defaut et risques d'entreprises</title>
+    <title>Projet personnel : défaut et risques d'entreprises</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -21,14 +21,13 @@
         <section class="project-section intro">
             <h2>Contexte et Objectifs</h2>
             <p> 
-    Ce projet personnel vise à répondre à un défi majeur du secteur bancaire : l'anticipation du risque de défaillance des PME grâce à l'exploitation des données financières publiques de l'INSEE et de l'INPI. 
- En effet les banques et investisseurs veulent savoir si une PME risque de faire faillite.
-L'objectif est d'utiliser les données financières publiques (bilans d’entreprises, données INPI, INSEE) pour construire un score de risque.
-J'ai déployé un outil d’aide au crédit, au financement des entreprises, à l’investissement.
+                Ce projet vise à répondre à un défi majeur du secteur financier : l'anticipation du risque de défaillance des entreprises. 
+                L'objectif initial était d'exploiter les bilans financiers publics pour construire un score de risque prédictif.
+                Face aux contraintes d'accessibilité des données comptables (APIs payantes), j'ai pivoté vers une approche par <b>signaux "Proxy"</b> exploitant les caractéristiques structurelles et les annonces légales pour évaluer la santé des entreprises locales.
             </p>
             <p>
-                Réalisé par : Chiara Masi<br>
-                Période : Juillet 2025- en cours. <br>
+                <strong>Réalisé par :</strong> Chiara Masi<br>
+                <strong>Période :</strong> Juillet 2025 - en cours. <br>
             </p>
         </section>
 
@@ -36,26 +35,42 @@ J'ai déployé un outil d’aide au crédit, au financement des entreprises, à 
             <h2>Compétences et Outils Utilisés</h2>
             <div class="skills-list">
                 <span class="skill-tag">Python (Pandas, Numpy)</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">SQL MariaDB</span>
+                <span class="skill-tag">Scikit-learn (Random Forest)</span>
+                <span class="skill-tag">SQL MySQL / MariaDB</span>
                 <span class="skill-tag">Visualisation (Matplotlib, Seaborn)</span>
+                <span class="skill-tag">Ingénierie de données & ETL</span>
             </div>
     
             <p style="margin-top: 15px;">
-                Source de données :
+                <strong>Sources de données :</strong> 
+                API SIRENE (INSEE) pour le profilage, API BODACC (annonces légales) pour l'identification des défauts, et indicateurs macro-économiques régionaux (PACA) pour le contexte conjoncturel.
             </p>
         </section>
 
         <section class="project-section methodology">
             <h2>Approche Méthodologique et Modèles</h2>
-
+            <p>
+                L'architecture du projet repose sur une séparation entre la collecte (ETL) et l'analyse prédictive :
+            </p>
+            <ul>
+                <li><strong>Ingestion de données :</strong> Développement de scripts Python pour l'alimentation automatisée d'une base MySQL.</li>
+                <li><strong>Feature Engineering :</strong> Création de variables clés telles que l'ancienneté de l'entreprise et l'encodage des secteurs d'activité (NAF).</li>
+                <li><strong>Traitement du déséquilibre :</strong> Utilisation d'un modèle <i>Random Forest</i> avec pondération des classes (class_weight='balanced') pour traiter un dataset comportant moins de 1% de défauts.</li>
+            </ul>
+            
         </section>
 
         <section class="project-section results">
             <h2>Résultats Clés</h2>
-
-        <a href="https://github.com/ChiaraData/defaut-entreprises-data-project" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-code"></i> Voir le projet</a>
-
+            <p>
+                Le modèle a permis de générer un <b>Score de Risque</b> sur 100 pour plus de 20 000 entreprises de la zone Aix-Marseille. 
+                Les analyses démontrent que l'âge de l'entreprise et son secteur géographique sont des prédicteurs majeurs en l'absence de données comptables.
+            </p>
+            <div class="note-box" style="background: #f9f9f9; padding: 15px; border-left: 5px solid #3498db;">
+                <p><strong>Note d'expérience :</strong> Ce projet illustre ma capacité à surmonter les limitations techniques et budgétaires en adaptant la stratégie de modélisation pour extraire de la valeur à partir de données alternatives.</p>
+            </div>
+            <br>
+            <a href="https://github.com/ChiaraData/defaut-entreprises-data-project" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-code"></i> Voir le projet sur GitHub</a>
         </section>
 
     </main>
