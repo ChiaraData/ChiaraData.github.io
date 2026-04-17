@@ -27,17 +27,19 @@
                 Plutôt que de reproduire l'exercice à l'identique, j'ai choisi de le reconstruire <b>de bout en bout</b> 
                 en l'adaptant au marché immobilier français : recherche des données, construction du dataset, 
                 ingénierie des features, modélisation, puis mise en production d'une API prédictive.
+                Ce projet n'est pas disponible publiquement sur Github afin de prévenir toute réutilisation non autorisée. 
+                Pour plus d'informations, vous pouvez me contacter à l'adresse suivante : chiara.masi@etu.univ-amu.fr
             </p>
             <p>
-                Le défi principal a été l'absence d'un dataset français prêt à l'emploi. J'ai donc constitué 
+                Le défi principal a été de récupérer un dataset complet. J'ai donc constitué 
                 moi-même les données depuis plusieurs sources publiques, en créant notamment un <b>fichier CSV dédié 
                 à la collecte des équipements de proximité</b> (transports, commerces, écoles…), qui enrichit 
                 significativement la qualité des prédictions.
             </p>
             <p>
                 <strong>Réalisé par :</strong> Chiara Masi<br>
-                <strong>Période :</strong> 2025 — en cours<br>
-                <strong>Statut :</strong> Phase de validation du modèle / mise en production API
+                <strong>Période :</strong> Avril 2026 — en cours<br>
+                <strong>Statut :</strong> préparation des données pour les modèles (encodage, normalisation,standardisation)
             </p>
         </section>
 
@@ -46,7 +48,6 @@
             <div class="skills-list">
                 <span class="skill-tag">Python (Pandas, NumPy)</span>
                 <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">XGBoost / Random Forest</span>
                 <span class="skill-tag">FastAPI</span>
                 <span class="skill-tag">Visualisation (Matplotlib, Seaborn)</span>
                 <span class="skill-tag">Ingénierie de données & ETL</span>
@@ -55,7 +56,6 @@
             <p style="margin-top: 15px;">
                 <strong>Sources de données :</strong>
                 Demandes de Valeurs Foncières (DVF / data.gouv.fr) pour les transactions réelles, 
-                OpenStreetMap pour les données géographiques et de proximité, 
                 et un fichier CSV personnel créé manuellement pour la collecte des équipements locaux.
             </p>
         </section>
@@ -67,7 +67,7 @@
             </p>
             <ul>
                 <li><strong>Collecte des données :</strong> Extraction et consolidation des sources DVF, OpenStreetMap et du fichier CSV d'équipements créé manuellement.</li>
-                <li><strong>Feature Engineering itératif :</strong> Construction et amélioration continue des variables — surface, ancienneté, type de bien, densité d'équipements, score de localisation, encodage des variables catégorielles (type de bien, zone géographique).</li>
+                <li><strong>Feature Engineering itératif :</strong> Construction et amélioration continue des variables — surface, type de bien, densité d'équipements, encodage des variables catégorielles (type de bien, zone géographique).</li>
                 <li><strong>Création d'un fichier CSV personnel :</strong> Récolte structurée des données d'équipements de proximité pour enrichir le dataset au-delà des sources publiques disponibles.</li>
                 <li><strong>Modélisation et évaluation :</strong> Entraînement et comparaison de plusieurs modèles (Régression linéaire, Decision Tree, Random Forest, Gradient Boosting) via validation croisée (RMSE, MAE).</li>
                 <li><strong>Mise en production :</strong> Une fois le modèle validé, déploiement sous forme d'API REST avec FastAPI pour exposer les prédictions.</li>
@@ -77,16 +77,12 @@
         <section class="project-section results">
             <h2>Avancement et Résultats</h2>
             <p>
-                Les étapes de collecte, de feature engineering et d'entraînement des modèles sont finalisées. 
-                Le pipeline produit des <b>estimations de prix au m²</b> en fonction des caractéristiques du bien 
-                et de son environnement immédiat. L'analyse confirme que les variables de localisation 
-                et la densité d'équipements sont des prédicteurs majeurs, au même titre que la surface et le type de bien.
+                Les étapes de collecte et de feature engineering sont finalisées. 
             </p>
             <div class="note-box" style="background: #f9f9f9; padding: 15px; border-left: 5px solid #3498db;">
                 <p><strong>Note d'expérience :</strong> Ce projet illustre ma capacité à construire un projet ML de A à Z en conditions réelles — sans dataset clé en main, en fabriquant moi-même les données manquantes et en itérant continuellement sur les features pour améliorer la performance du modèle.</p>
             </div>
             <br>
-            <a href="https://github.com/ChiaraData" target="_blank" class="btn-primary second-btn"><i class="fas fa-file-code"></i> Voir le projet sur GitHub</a>
         </section>
 
     </main>
